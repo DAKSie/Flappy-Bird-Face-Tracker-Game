@@ -20,8 +20,8 @@ export const DIFFICULTY_PRESETS: Record<DifficultyKey, DifficultyValues> = {
   easy: {
     key: 'easy',
     label: 'Easy',
-    gravity: 940,
-    jumpImpulse: 355,
+    gravity: 620,
+    jumpImpulse: 300,
     gapSize: 220,
     pipeSpeed: 185,
     pipeSpacing: 300,

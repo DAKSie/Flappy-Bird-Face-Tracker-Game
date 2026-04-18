@@ -109,7 +109,7 @@ function App() {
   const startRound = useCallback((): void => {
     const playWorld = createPlayingWorld(difficulty)
     scoreSavedRef.current = false
-    queuedJumpRef.current = false
+    queuedJumpRef.current = true
     worldRef.current = playWorld
     setWorld(playWorld)
   }, [difficulty])
