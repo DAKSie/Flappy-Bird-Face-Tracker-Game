@@ -12,6 +12,7 @@ export const ZONE_END_Y = 240
 export const VISION_WIDTH = 640
 export const VISION_HEIGHT = 480
 export const CENTROID_SMOOTHING_ALPHA = 0.26
+export const JUMP_COOLDOWN_MS = 100
 export const VISION_TARGET_FPS = 60
 export const TRACKER_TARGET_FPS = 60
 export const VISION_LOST_TIMEOUT_MS = 1000

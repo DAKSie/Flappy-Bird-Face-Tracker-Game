@@ -7,6 +7,7 @@ import {
   CENTROID_SMOOTHING_ALPHA,
   DEFAULT_DIFFICULTY,
   DIFFICULTY_PRESETS,
+  JUMP_COOLDOWN_MS,
   ZONE_END_Y,
   ZONE_START_Y,
 } from './config/game'
@@ -58,6 +59,7 @@ function App() {
 
   const worldRef = useRef(world)
   const queuedJumpRef = useRef(false)
+  const lastJumpTimeRef = useRef<number>(-Infinity)
   const scoreSavedRef = useRef(false)
   const videoRef = useRef<HTMLVideoElement | null>(null)
 
@@ -76,6 +78,11 @@ function App() {
 
   const queueJump = useCallback((): void => {
     if (worldRef.current.status === 'playing') {
+      const now = performance.now()
+      if (now - lastJumpTimeRef.current < JUMP_COOLDOWN_MS) {
+        return
+      }
+      lastJumpTimeRef.current = now
       queuedJumpRef.current = true
     }
   }, [])
@@ -110,6 +117,7 @@ function App() {
     const playWorld = createPlayingWorld(difficulty)
     scoreSavedRef.current = false
     queuedJumpRef.current = true
+    lastJumpTimeRef.current = performance.now()
     worldRef.current = playWorld
     setWorld(playWorld)
   }, [difficulty])
@@ -118,6 +126,7 @@ function App() {
     const menuWorld = createInitialWorld(difficulty)
     scoreSavedRef.current = false
     queuedJumpRef.current = false
+    lastJumpTimeRef.current = -Infinity
     worldRef.current = menuWorld
     setWorld(menuWorld)
   }, [difficulty])
