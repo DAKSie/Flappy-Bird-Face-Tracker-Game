@@ -21,6 +21,7 @@ export const DIFFICULTY_PRESETS: Record<DifficultyKey, DifficultyValues> = {
   easy: {
     key: 'easy',
     label: 'Easy',
+    scoreMultiplier: 1,
     gravity: 620,
     jumpImpulse: 300,
     gapSize: 220,
@@ -31,6 +32,7 @@ export const DIFFICULTY_PRESETS: Record<DifficultyKey, DifficultyValues> = {
   normal: {
     key: 'normal',
     label: 'Normal',
+    scoreMultiplier: 2,
     gravity: 1050,
     jumpImpulse: 385,
     gapSize: 190,
@@ -41,12 +43,24 @@ export const DIFFICULTY_PRESETS: Record<DifficultyKey, DifficultyValues> = {
   hard: {
     key: 'hard',
     label: 'Hard',
+    scoreMultiplier: 4,
     gravity: 1180,
     jumpImpulse: 415,
     gapSize: 165,
     pipeSpeed: 242,
     pipeSpacing: 252,
     birdRadius: 16,
+  },
+  twin: {
+    key: 'twin',
+    label: 'Twin',
+    scoreMultiplier: 5,
+    gravity: 1000,
+    jumpImpulse: 400,
+    gapSize: 100,
+    pipeSpeed: 400,
+    pipeSpacing: 300,
+    birdRadius: 15,
   },
 }
 

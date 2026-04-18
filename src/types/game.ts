@@ -1,8 +1,9 @@
-export type DifficultyKey = 'easy' | 'normal' | 'hard'
+export type DifficultyKey = 'easy' | 'normal' | 'hard' | 'twin'
 
 export interface DifficultyValues {
   key: DifficultyKey
   label: string
+  scoreMultiplier: number
   gravity: number
   jumpImpulse: number
   gapSize: number

@@ -104,7 +104,7 @@ export const stepWorld = (
   let score = current.score
   pipes = pipes.map((pipe) => {
     if (!pipe.passed && pipe.x + PIPE_WIDTH < current.bird.x - difficulty.birdRadius) {
-      score += 1
+      score += difficulty.scoreMultiplier
       return { ...pipe, passed: true }
     }
     return pipe
